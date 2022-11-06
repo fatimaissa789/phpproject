@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 05 nov. 2022 à 21:50
+-- Généré le : dim. 06 nov. 2022 à 20:26
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `nom` varchar(485) DEFAULT NULL,
   `prenom` varchar(852) DEFAULT NULL,
   `mail` varchar(589) DEFAULT NULL,
-  `roles` varchar(523) DEFAULT 'user',
+  `roles` varchar(523) DEFAULT NULL,
   `mdp` varchar(11) NOT NULL,
   `image` varchar(485) NOT NULL,
   `etat` int(11) NOT NULL DEFAULT '1',
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `date_modif` datetime DEFAULT NULL,
   `date_archi` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `users`
@@ -51,7 +51,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `matricule`, `nom`, `prenom`, `mail`, `roles`, `mdp`, `image`, `etat`, `date_Ins`, `date_modif`, `date_archi`) VALUES
 (1, NULL, 'nom1', 'ndiaye', 'user1@gmail.com', 'user', '123', 'pic-4.png', 1, '2022-11-05 19:32:12', NULL, NULL),
 (2, NULL, 'koko', 'ndiaye', 'user2@gmail.com', 'admin', '123', 'pic-2.png', 1, '2022-11-05 19:33:52', NULL, NULL),
-(3, NULL, 'koko', 'diop', 'user3@gmail.com', 'admin', '123', 'pic-3.png', 1, '2022-11-05 19:35:11', NULL, NULL);
+(3, NULL, 'koko', 'diop', 'user3@gmail.com', 'admin', '123', 'pic-3.png', 1, '2022-11-05 19:35:11', NULL, NULL),
+(4, NULL, 'nom1', 'ndiaye', 'admin1@gmail.com', 'user', '123', 'employe.jpg', 1, '2022-11-06 18:03:56', NULL, NULL),
+(5, NULL, 'mouss', 'ndiaye', 'admin2@gmail.com', NULL, '123', 'employe.jpg', 1, '2022-11-06 18:09:35', NULL, NULL),
+(6, NULL, 'jojo', 'ndiaye', 'admin3@gmail.com', 'admin', '123', 'bus2.jpg', 1, '2022-11-06 18:14:16', NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

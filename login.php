@@ -10,12 +10,12 @@ if(isset($_POST['submit'])){
     // $mtr = firter_var($mtr, FILTER_SANITIZE_STRING);
 
     $mail = $_POST['mail'];
-    $mail = filter_var($mail, FILTER_SANITIZE_STRING);
+    // $mail = filter_var($mail, FILTER_SANITIZE_STRING);
 
     // $role = $_POST['role'];
     // $role = filter_var($role, FILTER_SANITIZE_STRING);
 
-    $mdp = md5($_POST['mdp']);
+    $mdp = $_POST['mdp'];
     $mdp = filter_var($mdp, FILTER_SANITIZE_STRING);
     
 
@@ -28,13 +28,13 @@ if(isset($_POST['submit'])){
 
 
     if($select->rowCount() > 0){
-       if($row['roles'== 'admin']){
-        $_SESSION [ 'admin_id'] = $row['id'];
+       if($row['roles']=='admin'){
+        $_SESSION ['admin_id'] = $row['id'];
         header('location:admin_page.php');
        }
        
-       elseif($row['roles'== 'user']){
-        $_SESSION [ 'user_id'] = $row['id'];
+       elseif($row['roles']=='user'){
+        $_SESSION ['user_id'] = $row['id'];
         header('location:user_page.php');
 
 
