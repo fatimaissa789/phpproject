@@ -49,7 +49,7 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
             <td><?= $person->prenom; ?></td>
             <td><?= $person->mail; ?></td>
             <td><?= $person->roles; ?></td>
-            <td> <img src="img/<?php echo $person->image; ?>" style="background-size : contain;
+            <td> <img src="image/<?php echo $person->image; ?>" style="background-size : contain;
   background-position : 50% 50%; 
   background-image : url(/img/exemple/filter-image.jpg);
   display : inline-block;

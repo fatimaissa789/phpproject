@@ -16,11 +16,11 @@ if(isset($_POST['submit'])){
     // $role = filter_var($role, FILTER_SANITIZE_STRING);
 
     $mdp = $_POST['mdp'];
-    $mdp = filter_var($mdp, FILTER_SANITIZE_STRING);
+    // $mdp = filter_var($mdp, FILTER_SANITIZE_STRING);
     
 
 
-    $select = $conn->prepare("SELECT * FROM `users` WHERE mail =? AND mdp =?" );
+    $select = $connection->prepare("SELECT * FROM `users` WHERE mail =? AND mdp =?" );
     $select->execute([$mail,$mdp]);
     $row = $select->fetch(PDO::FETCH_ASSOC);
 
@@ -65,7 +65,7 @@ if(isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
     <title>Inscription</title>
 </head>
 
