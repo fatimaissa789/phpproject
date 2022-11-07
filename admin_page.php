@@ -8,7 +8,7 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 
-<!DOCTYPE html>+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,9 +48,17 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
             <td><?= $person->nom; ?></td>
             <td><?= $person->prenom; ?></td>
             <td><?= $person->mail; ?></td>
-
             <td><?= $person->roles; ?></td>
-            <td><?= $person->image; ?></td>
+            <td> <img src="img/<?php echo $person->image; ?>" style="background-size : contain;
+  background-position : 50% 50%; 
+  background-image : url(/img/exemple/filter-image.jpg);
+  display : inline-block;
+  width : 50px; height : 50px;
+  border: none;
+  -moz-border-radius : 75px;
+  -webkit-border-radius : 75px;
+  border-radius : 75px;
+"width = 100px > </td></td>
           
             <td>
               <a href="edit.php?id=<?= $person->id ?>" class="btn btn-info">Edit</a>

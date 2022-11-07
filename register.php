@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
     $image_folder = 'upload_img/'.$image;
 
 
-    $select = $conn->prepare("SELECT * FROM `users` WHERE mail =?");
+    $select = $connection->prepare("SELECT * FROM `users` WHERE mail =?");
     $select -> execute([$mail]);
 
 
@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
             $message[] = 'la taille de l`image est large';
         }
         else{
-            $insert = $conn-> prepare("INSERT INTO `users`(nom, prenom,mail,roles, mdp,image )VALUES (?,?,?,?,?,?)");
+            $insert = $connection-> prepare("INSERT INTO `users`(nom, prenom,mail,roles, mdp,image )VALUES (?,?,?,?,?,?)");
             $insert->execute([$name,$username,$mail, $role,$mdp, $image]);
             if ($insert){
                 move_uploaded_file($image_size, $image_folder);
