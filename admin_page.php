@@ -61,7 +61,7 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
 "width = 100px > </td></td>
           
             <td>
-              <a href="edit.php?id=<?= $person->id ?>" class="btn btn-info">Edit</a>
+              <a href="edit_user.php?id=<?= $person->id ?>" class="btn btn-info">Edit</a>
               <a onclick="return confirm('Are you sure you want to delete this entry?')" href="delete.php?id=<?= $person->id ?>" class='btn btn-danger'>Delete</a>
             </td>
           </tr>
