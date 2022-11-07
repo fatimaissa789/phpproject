@@ -4,7 +4,7 @@ $username= "root";
 $password ="";
 
 
-$conn = new PDO($db_name, $username, $password);
+$connection = new PDO($db_name, $username, $password);
 
 
 

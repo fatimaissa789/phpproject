@@ -1,12 +1,69 @@
-<!DOCTYPE html>
+<?php
+include  'config.php';
+
+$sql = 'SELECT * FROM users WHERE etat=1';
+$statement = $connection->prepare($sql);
+$statement->execute();
+$people = $statement->fetchAll(PDO::FETCH_OBJ);
+?>
+
+
+<!DOCTYPE html>+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin_page</title>
 </head>
 <body>
+
+<!--?php require 'header.php'; ?-->
+<div class="container">
+  <div class="card mt-5">
+    <div class="card-header">
+      <h2>Adminstrateur</h2>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <tr>
+          <th>ID</th>
+          <th>Matricule</th>
+
+          <th>Nom</th>
+          <th>Prenom</th>
+      
+          <th>Email</th>
+          <th>Role</th>
+          <th>Photo</th>
+
+
+
+          <th>Action</th>
+        </tr>
+        <?php foreach($people as $person): ?>
+          <tr>
+            <td><?= $person->id; ?></td>
+            <td><?= $person->matricule; ?></td>
+            <td><?= $person->nom; ?></td>
+            <td><?= $person->prenom; ?></td>
+            <td><?= $person->mail; ?></td>
+
+            <td><?= $person->roles; ?></td>
+            <td><?= $person->image; ?></td>
+          
+            <td>
+              <a href="edit.php?id=<?= $person->id ?>" class="btn btn-info">Edit</a>
+              <a onclick="return confirm('Are you sure you want to delete this entry?')" href="delete.php?id=<?= $person->id ?>" class='btn btn-danger'>Delete</a>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </table>
+    </div>
+  </div>
+</div>
+<!--?php require 'footer.php'?-->
+
     
     
 </body>

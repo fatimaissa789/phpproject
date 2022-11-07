@@ -1,0 +1,111 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="Dia()" id="infobar" name="form" 
+method="post" action="blablabla">
+<input type="email" name="Email" placeholder="Email here">
+<input type="submit" value="Join"></form>
+<dialog id="Di">👍🏽 Received.</dialog>
+<script>
+    window.addEventListener("load", function() {
+const t = document.getElementById("infobar");
+t.addEventListener("submit", function(e) {
+e.preventDefault();
+const n = new FormData(t),
+o = e.target.action;
+fetch(o, {
+method: "POST",
+body: data, }) }) });
+function Dia(){document.getElementById("Di").showModal()};
+
+
+</script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+	<title>Custom Alert Window</title>
+
+<style>
+	.container-sm { margin-top: 50px; }
+	#alertWindow .modal-header { height: 52px; min-height: 52px; border: 0px; }
+	#alertWindow .modal-body { padding: 0 40px; }
+	#alertWindow .modal-body  p {
+		margin: 0;
+		font-size: 16px;
+		font-weight: normal;
+		font-stretch: normal;
+		font-style: normal;
+		line-height: 1.56;
+		letter-spacing: normal;
+	}
+	#alertWindow .modal-footer { border: 0px; }
+
+</style>
+
+</head>
+<body>
+	<div class="container-sm">
+		<h1>Custom Alert Window</h1>
+
+		<button onClick="alert('Hello, world!')" class="btn btn-primary btn-lg">
+			Click to test alert
+		</button>
+	</div>
+
+	<div class="modal" tabindex="-1" data-bs-backdrop="static" id="alertWindow">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p id="alert-message"></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		// Overriding alert function
+		function customAlert(msg) {
+			var m = document.getElementById('alert-message');
+			m.textContent = String(msg);
+
+			var me = document.getElementById('alertWindow');
+			var alertModal = new bootstrap.Modal(me, {
+				keyboard: false,
+				backdrop: 'static'
+			});
+			console.log(alertWindow);
+			alertModal.show();
+		} 
+
+		(function(proxied) {
+			window.alert = function() {
+				return proxied.apply(this, arguments);
+			};
+		})(customAlert);
+	</script>
+</body>
+</html>

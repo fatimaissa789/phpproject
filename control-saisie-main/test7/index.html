@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Hello, world!</title>
+</head>
+
+<body>
+  <!-- <div class="container">
+    <div class="title">Inscription</div>
+    <div class="content">
+      <form action="#">
+        <div class="user-details">
+          <div class="input-box">
+            <label class="details">Nom</label>
+            <input onkeyup="validateInputs()" id="username" name="username" type="text">
+          </div>
+          <div class="input-box">
+            <label class="details">Prénom</label>
+            <input onkeyup="validateInputs()" id="name" name="name" type="text">
+          </div>
+          <div class="input-box">
+            <label class="details">Email</label>
+            <input onkeyup="validateInputs()" id="email" name="email" type="text">
+          </div>
+
+          <div class="input-box">
+            <label class="details">Role</label>
+            <input onkeyup="validateInputs()" id="role" name="role" type="text">
+          </div>
+          <div class="input-box">
+            <label class="details"> Mot de passe</label>
+            <input onkeyup="validateInputs()" type="password" id="password" name="password">
+          </div>
+          <div class="input-box">
+            <label class="details">Confirmer mot de passe</label>
+            <input onkeyup="validateInputs()" id="password2" name="password2" type="password">
+          </div>
+
+        </div>
+        <button type="submit">Submit</button>
+
+
+        <!--  -->
+  <!-- <div class="button">
+            <button>Submit</button>
+          </div> -->
+  <!-- </form>
+    </div>
+  </div> -->
+  <div class="container">
+    <div class="content">
+      
+      <form id="form" action="inscription.php" onsubmit="return validateInputs()"method="post">
+        <h1>Inscription</h1>
+        <div class="user-details">
+             <div class="input-control">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text">
+            <i class="fa-solid fa-check"></i>
+            <i class="fa-solid fa-xmark"></i>
+            <div class="error"></div>
+          </div>
+       <div class="input-control">
+            <label  for="name">Nom</label>
+            <input id="name" name="name" type="text">
+            <i class="fa-solid fa-check"></i>
+            <i class="fa-solid fa-xmark"></i>
+            <div class="error"></div>
+          </div>
+          <div class="input-control">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="mail">
+            <i class="fa-solid fa-check"></i>
+            <i class="fa-solid fa-xmark"></i>
+            <div class="error"></div>
+          </div>
+          <div class="input-control">
+            <label for="role">Role</label>
+            <input  id="role" name="role" type="text">
+            <i class="fa-solid fa-check"></i>
+            <i class="fa-solid fa-xmark"></i>
+            <div class="error"></div>
+          </div>
+          <div class="input-control">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password">
+            <i class="fa-solid fa-check"></i>
+            <i class="fa-solid fa-xmark"></i>
+            <div class="error"></div>
+          </div>
+          <div class="input-control">
+            <label for="password2">Password again</label>
+            <input id="password2" name="password2" type="password">
+            <i class="fa-solid fa-check"></i>
+            <i class="fa-solid fa-xmark"></i>
+            <div class="error"></div>
+          </div> 
+
+        </div>
+      
+          
+        </div>
+        <!-- <input type="submit" value="Rafraichir"/> <br/><br/> -->
+         <!-- <input type="submit" value="Submit Now" /> -->
+         <input type="submit" value="Submit Now" />
+        <!-- <div>
+               
+            </div> -->
+        <a href="inscription.html" class="link">
+          <div class="link">Inscription</div>
+        </a>
+
+      </form>
+
+    </div>
+
+
+
+
+  </div>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="js.js"></script>
+
+
+</body>
+
+</html>
