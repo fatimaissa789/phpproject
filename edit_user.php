@@ -9,7 +9,7 @@ $person = $statement->fetch(PDO::FETCH_OBJ);
 
 
 
-if (isset ($_POST['nom'])&& isset($_POST['prenom'] )&& isset($_POST['mail'] )&&isset($_POST['roles'] )) {
+if (isset ($_POST['nom'])&& isset($_POST['prenom'] )&& isset($_POST['mail'] )&&isset($_POST['roles'])) {
   $name = $_POST['nom'];
   $prenom = $_POST['prenom'];
   $email = $_POST['mail'];
@@ -28,18 +28,18 @@ if (isset ($_POST['nom'])&& isset($_POST['prenom'] )&& isset($_POST['mail'] )&&i
 
 
 }
-   $old_image = $_POST['old_image'];
-   $image = $_FILES['image']['name'];
-   $image_tmp_name = $_FILES['image']['tmp_name'];
-   $image_size = $_FILES['image']['size'];
-   $image_folder = 'uploaded_img/'.$image;
+  //  $old_image = $_POST['old_image'];
+  //  $image = $_FILES['image']['name'];
+  //  $image_tmp_name = $_FILES['image']['tmp_name'];
+  //  $image_size = $_FILES['image']['size'];
+  //  $image_folder = 'uploaded_img/'.$image;
 
    if(!empty($image)){
 
       if($image_size > 2000000){
          $message[] = 'image taille de l`image est trop large';
       }else{
-         $update_image = $conn->prepare("UPDATE `users` SET image = ? WHERE id = ?");
+         $update_image = $conn->prepare("UPDATE users SET image = ? WHERE id = ?");
          $update_image->execute([$image, $user_id]);
 
          if($update_image){
@@ -76,7 +76,7 @@ if (isset ($_POST['nom'])&& isset($_POST['prenom'] )&& isset($_POST['mail'] )&&i
       </div>
       <?php endif; ?>
       <form method="POST" enctype="multipart/form-data" >
-      <img src="uploaded_img/<?=  $fetch_profile['image']; ?>" alt="">
+        <!-- <img src="uploaded_img/<?= $fetch_profile['image'] ;?>" alt=""> -->
         <div class="form-group">
           <label for="nom">Nom</label>
           <input value="<?= $person->nom; ?>" type="text" name="nom" id="nom" class="form-control ">
@@ -94,7 +94,7 @@ if (isset ($_POST['nom'])&& isset($_POST['prenom'] )&& isset($_POST['mail'] )&&i
           <input value="<?= $person->roles; ?>" type="text" name="roles" id="roles" class="form-control">
         </div>
         <span>profile pic : </span>
-            <input type="hidden" name="old_image" value="<?=$fetch_profile['image']; ?>">
+            <!-- <input type="hidden" name="old_image" value="<?=$fetch_profile['image']; ?>"> -->
             <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png">
         <!-- <div class="form-group">
           <label for="email">Email</label>

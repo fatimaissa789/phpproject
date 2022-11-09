@@ -1,5 +1,8 @@
 <?php 
 include 'config.php';
+
+session_start();
+
 if(isset($_POST['submit'])){
     // $name = $_POST['nom'];
     // $name = filter_var($name, FILTER_SANITIZE_STRING);
@@ -24,17 +27,30 @@ if(isset($_POST['submit'])){
     $select->execute([$mail,$mdp]);
     $row = $select->fetch(PDO::FETCH_ASSOC);
 
-
-
+    
 
     if($select->rowCount() > 0){
+        
+        $_SESSION['nomPrenom'] = $row['nom']." ".$row['prenom'];
+       
+        $_SESSION['image'] = $row['image'];
+         $_SESSION['matricule'] = $row['matricule'];
+
+        // var_dump($_SESSION['image']);
+        // var_dump($_SESSION['matricule']);
+        // var_dump($_SESSION['nomPrenom']);
+       
+        // var_dump($row['roles'] == 'admin');
+        // die;
+
        if($row['roles']=='admin'){
-        $_SESSION ['admin_id'] = $row['id'];
+        $_SESSION['admin_id'] = $row['id'];
+        // header('location:admin_page.php');
         header('location:admin_page.php');
        }
        
        elseif($row['roles']=='user'){
-        $_SESSION ['user_id'] = $row['id'];
+        $_SESSION['user_id'] = $row['id'];
         header('location:user_page.php');
 
 
@@ -79,6 +95,7 @@ if(isset($_POST['submit'])){
         <span>'.$message.'</span>
         <i class= "fas fa-times" onclick="this.parentElement.remove();"></i>
     </div>';
+    
     }
    }
    

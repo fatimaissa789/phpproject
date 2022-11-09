@@ -19,8 +19,8 @@ if(isset($_POST['submit'])){
     // $mdp = filter_var($mdp, FILTER_SANITIZE_STRING);
     $mdp2 = $_POST['mdp2'];
     // $mdp2 = filter_var($mdp2, FILTER_SANITIZE_STRING);
-
-    $image = $_FILES['image']['name'];
+    $matricule= date(' his-- A',time()).'-MTR';
+        $image = $_FILES['image']['name'];
     $image_size = $_FILES ['image']['size'];
     $image_folder = 'upload_img/'.$image;
 
@@ -42,8 +42,8 @@ if(isset($_POST['submit'])){
             $message[] = 'la taille de l`image est large';
         }
         else{
-            $insert = $connection-> prepare("INSERT INTO `users`(nom, prenom,mail,roles, mdp,image )VALUES (?,?,?,?,?,?)");
-            $insert->execute([$name,$username,$mail, $role,$mdp, $image]);
+            $insert = $connection-> prepare("INSERT INTO `users`(nom,matricule, prenom,mail,roles, mdp,image )VALUES (?,?,?,?,?,?,?)");
+            $insert->execute([$name,$matricule,$username,$mail, $role,$mdp, $image]);
             if ($insert){
                 move_uploaded_file($image_size, $image_folder);
                 $message[]= 'enregistrer avec succées';

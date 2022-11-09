@@ -1,29 +1,9 @@
 <?php
 include  'config.php';
 
-session_start();
-
-$admin_id = $_SESSION['admin_id'];
-
-$admin_nomPrenom = $_SESSION['nomPrenom'];
-
-$admin_image = $_SESSION['image'];
-
-$admin_matricule = $_SESSION['matricule'];
-
-//    var_dump($_SESSION['image']);
-//         var_dump($_SESSION['matricule']);
-//         var_dump($_SESSION['nomPrenom']);
-       
-// die;
-
-if(!isset($admin_id)){
-  // header('location:login.php');
-}
-
-$sql = 'SELECT * FROM users WHERE etat=1';
+$sql = 'SELECT * FROM users WHERE etat=0';
 $statement = $connection->prepare($sql);
-$statement->execute([$admin_id]);
+$statement->execute();
 $people = $statement->fetchAll(PDO::FETCH_OBJ);
 ?>
 
@@ -43,10 +23,6 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
   <div class="card mt-5">
     <div class="card-header">
       <h2>Adminstrateur</h2>
-      <img src="image/<?= $_SESSION['image'];?>" alt="">
-      
-      <h3><?= $_SESSION['nomPrenom']; ?></h3>
-      <a href="page_user_archiver.php">Archive</a>
     </div>
     <div class="card-body">
       <table class="table table-bordered">
@@ -56,6 +32,7 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
 
           <th>Nom</th>
           <th>Prenom</th>
+      
           <th>Email</th>
           <th>Role</th>
           <th>Photo</th>
@@ -84,9 +61,8 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
 "width = 100px > </td></td>
           
             <td>
-              <a href="edit_user.php?id=<?= $person->id ?>" class="btn btn-info">Edit</a>
-              <a onclick="return confirm('Are you sure you want to delete this entry?')" href="archive_user.php?id=<?= $person->id ?>" class='btn btn-danger'>Delete</a>
-              <a onclick="return confirm('Are you sure you want to delete this entry?')" href="change_role_user.php?id=<?= $person->id ?>" class='btn btn-danger'>Change role</a>
+              <!-- <a href="edit_user.php?id=<?= $person->id ?>" class="btn btn-info">Edit</a> -->
+              <a onclick="return confirm('Are you sure you want to delete this entry?')" href="desarchivage_user.php?id=<?= $person->id ?>" class='btn btn-danger'>desarchivage</a>
             </td>
           </tr>
         <?php endforeach; ?>
