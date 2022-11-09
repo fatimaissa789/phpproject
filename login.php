@@ -56,7 +56,7 @@ if(isset($_POST['submit'])){
 
        }
        else{
-        $message[]= 'existe pas';
+        $message[]= 'n`existe pas';
 
        }
 
@@ -119,5 +119,5 @@ if(isset($_POST['submit'])){
              </form>
     </section>
 </body>
-
+<script ></script>
 </html>

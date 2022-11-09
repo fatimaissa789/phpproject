@@ -28,8 +28,8 @@
         <i class="fas fa-exclamation-circle"></i>
         <small>Error message</small>
       </div> -->
-
-      <div class="form-control">
+ 
+     <div class="form-control">
         <label for="mail">Email</label>
         <input type="email" placeholder="a@florin-pop.com" name="email" id="email" />
         <i class="fas fa-check-circle"></i>
