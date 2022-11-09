@@ -1,8 +1,9 @@
 <?php
 require 'config.php';
 $id = $_GET['id'];
-$sql = 'UPDATE users SET etat= 0 WHERE id=:id';
+$date_archi=date('y-m-s');
+$sql = 'UPDATE users SET  etat= 0,date_archi=:date_archi WHERE id=:id';
 $statement = $connection->prepare($sql);
-if ($statement->execute([':id' => $id])) {
+if ($statement->execute([':id' => $id,':date_archi'=>$date_archi])) {
   header("Location: admin_page.php");
 }?>
