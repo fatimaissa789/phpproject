@@ -1,6 +1,7 @@
 <?php
 include  'config.php';
 
+
 session_start();
 
 $admin_id = $_SESSION['admin_id'];
@@ -46,6 +47,8 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
       <img src="image/<?= $_SESSION['image'];?>" alt="">
       
       <h3><?= $_SESSION['nomPrenom']; ?></h3>
+      
+      <h3><?= $_SESSION['matricule']; ?></h3>
       <a href="page_user_archiver.php">Archive</a>
     </div>
     <div class="card-body">
@@ -86,7 +89,7 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
             <td>
               <a href="edit_user.php?id=<?= $person->id ?>" class="btn btn-info">Edit</a>
               <a onclick="return confirm('Are you sure you want to delete this entry?')" href="archive_user.php?id=<?= $person->id ?>" class='btn btn-danger'>Delete</a>
-              <a onclick="return confirm('Are you sure you want to delete this entry?')" href="change_role_user.php?id=<?= $person->id ?>" class='btn btn-danger'>Change role</a>
+              <a  href="change_role.php?id=<?= $person->id ?>" class='btn btn-danger'>Change role</a>
             </td>
           </tr>
         <?php endforeach; ?>
