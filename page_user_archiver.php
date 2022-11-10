@@ -12,8 +12,11 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style_admin.css">
     <title>Admin_page</title>
 </head>
 <body>
@@ -62,7 +65,7 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
           
             <td>
               <!-- <a href="edit_user.php?id=<?= $person->id ?>" class="btn btn-info">Edit</a> -->
-              <a onclick="return confirm('Are you sure you want to delete this entry?')" href="desarchivage_user.php?id=<?= $person->id ?>" class='btn btn-danger'>desarchivage</a>
+              <a onclick="return confirm('Etes-vous sur de désarchiver cet utlisateur?')" style="color:#e74c3c;text-align:center" href="desarchivage_user.php?id=<?= $person->id ?>" ><i class="fa-solid fa-box-archive"></i></a>
             </td>
           </tr>
         <?php endforeach; ?>
