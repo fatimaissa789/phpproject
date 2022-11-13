@@ -1,109 +1,20 @@
-<?php 
-include 'config.php';
 
-session_start();
-
-if(isset($_POST['submit'])){
-    // $name = $_POST['nom'];
-    // $name = filter_var($name, FILTER_SANITIZE_STRING);
-
-    // $username = $_POST['prenom'];
-    // $username = filter_var($username, FILTER_SANITIZE_STRING);
-    // $mtr = $_POST["mtr"];
-    // $mtr = firter_var($mtr, FILTER_SANITIZE_STRING);
-
-    $mail = $_POST['mail'];
-    // $mail = filter_var($mail, FILTER_SANITIZE_STRING);
-
-    // $role = $_POST['role'];
-    // $role = filter_var($role, FILTER_SANITIZE_STRING);
-
-    $mdp = $_POST['mdp'];
-    // $mdp = filter_var($mdp, FILTER_SANITIZE_STRING);
+    <?php 
     
-
-
-    $select = $connection->prepare("SELECT * FROM `users` WHERE mail =? AND mdp =?" );
-    $select->execute([$mail,$mdp]);
-    $row = $select->fetch(PDO::FETCH_ASSOC);
-
+    include "./db/config.php";
+include  "./controllers/coonnect.php";
     
-
-    if($select->rowCount() > 0){
-        
-        $_SESSION['nomPrenom'] = $row['nom']." ".$row['prenom'];
-       
-        $_SESSION['image'] = $row['image'];
-         $_SESSION['matricule'] = $row['matricule'];
-
-        // var_dump($_SESSION['image']);
-        // var_dump($_SESSION['matricule']);
-        // var_dump($_SESSION['nomPrenom']);
-       
-        // var_dump($row['roles'] == 'admin');
-        // die;
-
-       if($row['roles']=='admin'){
-        $_SESSION['admin_id'] = $row['id'];
-        // header('location:admin_page.php');
-        header('location:admin_page.php');
-       }
-       
-       elseif($row['roles']=='user'){
-        $_SESSION['user_id'] = $row['id'];
-        header('location:user_page.php');
-
-
-       }
-       else{
-        $message[]= "n'existe pas";
-
-       }
-
-    }
-    else{
-       $message[]= 'email ou mot de passe incorrect';
-
-    }
-    
-
-
-
-}
-
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style2.css">
-    <link rel="stylesheet" href="css/style.css">
-
-    <title>Inscription</title>
-</head>
-
-<body>
-
-   <?php
-   if(isset($message)){
-    foreach ($message as $message){
-        echo'
-        <div class="message">
-        <span>'.$message.'</span>
-        <i class= "fas fa-times" onclick="this.parentElement.remove();"></i>
-    </div>';
-    
-    }
-   }
-   
-   
-   ?>
-    
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style2.css">
+        <title>Document</title>
+    </head>
+    <body>
     <div class="contain">
 
 <form action="" method="post" id="form" enctype="multipart/form-data">
@@ -205,6 +116,10 @@ if(isset($_POST['submit'])){
 
 
 
-<!-- <script src="script.js"></script> -->
+<script src="script.js"></script>
+        
+    </body>
+    </html>
+   
   </body>
   </html>

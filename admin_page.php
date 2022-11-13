@@ -1,41 +1,12 @@
+
 <?php
-include  'config.php';
+
+include "./model/affiche.php";
+// include "./model/archive_user.php";
+// include "./model/change_role.php";
 
 
-session_start();
-
-
-$id = $_SESSION['admin_id'];
-
-$admin_nomPrenom = $_SESSION['nomPrenom'];
-
-$admin_image = $_SESSION['image'];
-
-$admin_matricule = $_SESSION['matricule'];
-
-//    var_dump($_SESSION['image']);
-//         var_dump($_SESSION['matricule']);
-//         var_dump($_SESSION['nomPrenom']);
-       
-// die;
-
-
-
-
-
-// var_dump($people);
-// die;
-
-if(!isset($id)){
-  header('location:login.php');
-}
-
-$sql = "SELECT * FROM users WHERE etat=1 AND id!=:id";
-$statement = $connection->prepare($sql);
-$statement->execute([ 'id'=> $id]);
-$people = $statement->fetchAll(PDO::FETCH_OBJ);
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -130,7 +101,7 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
           <td>
             <a href="edit_user.php?id=<?= $person->id ?>"><i style="color:#e74c3c"
                 class="fa-solid fa-pen-to-square"></i></a>
-            <a onclick="return confirm('Etes-vous sure de vouloir modifier le profil?')"
+            <a onclick="return confirm('Etes-vous sure de vouloir archiver le profil?')"
               href="archive_user.php?id=<?= $person->id ?>"><i style="color:#e74c3c"
                 class="fa-solid fa-box-archive"></i></a>
             <a href="change_role.php?id=<?= $person->id ?>"><i style="color:#e74c3c" class="fa-solid fa-rotate"></i></a>

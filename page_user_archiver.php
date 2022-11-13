@@ -1,12 +1,10 @@
-<?php
-include  'config.php';
 
-$sql = 'SELECT * FROM users WHERE etat=0';
-$statement = $connection->prepare($sql);
-$statement->execute();
-$people = $statement->fetchAll(PDO::FETCH_OBJ);
+<?php 
+
+include "./model/affiche_archiver.php";
+// include "desarchivage.php";
+
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +63,7 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
           
             <td>
               <!-- <a href="edit_user.php?id=<?= $person->id ?>" class="btn btn-info">Edit</a> -->
-              <a onclick="return confirm('Etes-vous sur de désarchiver cet utlisateur?')" style="color:#e74c3c;text-align:center" href="desarchivage_user.php?id=<?= $person->id ?>" ><i class="fa-solid fa-box-archive"></i></a>
+              <a onclick="return confirm('Etes-vous sur de désarchiver cet utlisateur?')" style="color:#e74c3c;text-align:center" href="desarchivage.php?id=<?= $person->id ?>" ><i class="fa-solid fa-box-archive"></i></a>
             </td>
           </tr>
         <?php endforeach; ?>

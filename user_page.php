@@ -11,6 +11,7 @@ $admin_nomPrenom = $_SESSION['nomPrenom'];
 $admin_image = $_SESSION['image'];
 
 $admin_matricule = $_SESSION['matricule'];
+// $date_ins=$_SESSION['date_ins'];
 
 //    var_dump($_SESSION['image']);
 //         var_dump($_SESSION['matricule']);
@@ -81,7 +82,7 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
           <th>Prenom</th>
           <th>Email</th>
           <th>Role</th>
-          <!-- <th>Photo</th> -->
+          <th>Date Incription</th>
 
 
 
@@ -95,6 +96,8 @@ $people = $statement->fetchAll(PDO::FETCH_OBJ);
             <td><?= $person->prenom; ?></td>
             <td><?= $person->mail; ?></td>
             <td><?= $person->roles; ?></td>
+            <td><?= $person->date_Ins; ?></td>
+
             <!-- <td> <img src="image/<?php echo $person->image; ?>" style="background-size : contain;
   background-position : 50% 50%; 
   background-image : url(/img/exemple/filter-image.jpg);
