@@ -94,3 +94,4 @@ include "./model/modif.php";
     </div>
   </div>
 </div>
+<script src="script.js"></script>

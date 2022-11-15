@@ -10,11 +10,25 @@ include  "./controllers/coonnect.php";
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style2.css">
+         <!-- <link rel="stylesheet" href="css/style.css"> -->
         <title>Document</title>
     </head>
     <body>
+    <?php
+   if(isset($message)){
+      foreach($message as $message){
+         echo '
+         <div class="message">
+            <span>'.$message.'</span>
+            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+         </div>
+         ';
+      }
+   }
+?>
     <div class="contain">
 
 <form action="" method="post" id="form" enctype="multipart/form-data">
@@ -107,7 +121,6 @@ include  "./controllers/coonnect.php";
         <p>Vous avez un compte?<a href="register.php"> S'inscrire</a></p>
     </div>
 
-    <!-- <button>Envoyer le message</button> -->
 </div>
 
 

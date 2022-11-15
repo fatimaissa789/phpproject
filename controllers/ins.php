@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
     $mdp2 = $_POST['mdp2'];
     // $mdp2 = filter_var($mdp2, FILTER_SANITIZE_STRING);
     $matricule= date(' his-- A',time()).'-MTR';
-        $image = $_FILES['image']['name'];
+    $image = $_FILES['image']['name'];
     $image_size = $_FILES ['image']['size'];
     $image_folder = 'upload_img/'.$image;
 

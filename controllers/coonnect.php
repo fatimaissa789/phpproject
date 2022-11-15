@@ -46,12 +46,12 @@ if(isset($_POST['submit'])){
        if($row['roles']=='admin'){
         $_SESSION['admin_id'] = $row['id'];
         // header('location:admin_page.php');
-        header('location:admin_page.php');
+        header('location:./admin_page.php');
        }
        
        elseif($row['roles']=='user'){
         $_SESSION['user_id'] = $row['id'];
-        header('location:user_page.php');
+        header('location:./user_page.php');
 
 
        }

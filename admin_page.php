@@ -2,9 +2,16 @@
 <?php
 
 include "./model/affiche.php";
-// include "./model/archive_user.php";
-// include "./model/change_role.php";
 
+include "./model/pagination.php";
+// include "./model/change_role.php";
+if(isset($_POST['send'])){
+   $mat= $_POST['search'];
+
+   $select=$connection->prepare("SELECT nom,mail FROM users WHERE matricule=:matricule AND etat=1");
+   $select->execute(['matricule' => $mat]);
+   $row=$select->fetch(PDO::FETCH_ASSOC);
+}   
 
 ?>
 
@@ -26,11 +33,16 @@ include "./model/affiche.php";
 <!--?php require 'header.php'; ?-->
 <div class="container" style="background-color: #FE6263">
   <div class="card mt-5">
-    <div class="card-header" style="height:156px">
+ 
+    <div class="card-header" style="height:199px">
+    
       <div class="deconnect">
         <a href="logout.php" style="margin-left:1248px; top:789px"><i
             class="fa-solid fa-arrow-right-from-bracket"></i></a>
       </div>
+
+     
+           
 
       <!-- <h2>Adminstrateur</h2> -->
       <img src="image/<?= $_SESSION['image'];?>" alt="" style=" background-size : contain;
@@ -49,12 +61,34 @@ include "./model/affiche.php";
       <h3>
         <?= $_SESSION['matricule']; ?>
       </h3>
+      
 
-      <button style="margin-left:956px;background-color:#FE6263;border:none; border-radius:2px;margin-bottom:256px"><a
-          style="text-decoration:none;color:white;" href="page_user_archiver.php">Liste des Archives</a></button>
     </div>
     <div class="card-body">
+    <nav class="navbar bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Administrateur</a>
+    <div class="button">
+      <button style="margin-left:556px; background-color:#FE6263;border:none; border-radius:2px"><a
+          style="text-decoration:none;color:white;" href="page_user_archiver.php">Liste des Archives</a></button>
+
+      </div>
+    <form class="d-flex" role="search" method="POST">
+      <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" name="send" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<?php 
+
+
+
+?>
+
       <table class="table table-bordered">
+        <section class="afficher_user">
+          
+        </section>
         <tr>
           <!-- <th>ID</th> -->
           <th>Matricule</th>
@@ -110,6 +144,8 @@ include "./model/affiche.php";
         <?php endforeach; ?>
 
       </table>
+       <?php include "footer.php" ?>
+
 
     </div>
   </div>
@@ -117,7 +153,7 @@ include "./model/affiche.php";
 
 <!--?php require 'footer.php'?-->
 
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
 </body>
 
