@@ -61,14 +61,14 @@ include  "./controllers/coonnect.php";
         <small>Error message</small> -->
             <div class="form-control" style="text-align">
                 <label for="username">Email</label>
-                <input type="email" name="mail" placeholder="a@florin-pop.com" id="email" />
+                <input type="email" name="mail" id="email" />
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
             <div class="form-control">
                 <label for="username">Mot de passe</label>
-                <input type="password" name="mdp" name="password" placeholder="Password" id="password" />
+                <input type="password" name="mdp" name="password"  id="password" />
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
@@ -129,7 +129,7 @@ include  "./controllers/coonnect.php";
 
 
 
-<script src="script.js"></script>
+<script src="script_login.js"></script>
         
     </body>
     </html>

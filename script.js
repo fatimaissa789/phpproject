@@ -53,7 +53,7 @@ function checkInputs() {
 	if(emailValue === '') {
 		setErrorFor(email, 'champ vide');
 	} else if (!isEmail(emailValue)) {
-		setErrorFor(email, 'Not a valid email');
+		setErrorFor(email, ' Email non valide');
 	} else {
         emailBool = true
 		setSuccessFor(email);

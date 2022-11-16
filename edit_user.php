@@ -6,20 +6,30 @@
 include "./db/config.php";
 include "./model/modif.php";
 
-
+include "./controllers/ins.php";
 ?>
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style2.css">
+  <title>Modifier</title>
+</head>
+<body>
 
-
-<link rel="stylesheet" href="css/style2.css">
-
-
-
-      <h2>Modifier</h2>
-    </div>
-
+  <div class="container">
+    <div class="card mt-5">
+      <div class="card-header">
+        <h2>Modifier</h2>
+      </div>
+      <div class="card-body">
       <?php if(!empty($message)): ?>
       <div class="alert alert-success">
         <?= $message; ?>
@@ -94,4 +104,20 @@ include "./model/modif.php";
     </div>
   </div>
 </div>
+    </div>
+  </div>
+
+
 <script src="script.js"></script>
+  
+
+      </div>
+      
+</body>
+</html>
+
+
+
+
+
+     

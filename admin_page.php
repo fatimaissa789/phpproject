@@ -5,15 +5,10 @@ include "./model/affiche.php";
 
 include "./model/pagination.php";
 // include "./model/change_role.php";
-if(isset($_POST['send'])){
-   $mat= $_POST['search'];
 
-   $select=$connection->prepare("SELECT nom,mail FROM users WHERE matricule=:matricule AND etat=1");
-   $select->execute(['matricule' => $mat]);
-   $row=$select->fetch(PDO::FETCH_ASSOC);
-}   
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +32,7 @@ if(isset($_POST['send'])){
     <div class="card-header" style="height:199px">
     
       <div class="deconnect">
-        <a href="logout.php" style="margin-left:1248px; top:789px"><i
+        <a href="logout.php" style="margin-left:1200px;align-items:center;font-size:26px;color:#FE6263"><i
             class="fa-solid fa-arrow-right-from-bracket"></i></a>
       </div>
 
@@ -68,20 +63,26 @@ if(isset($_POST['send'])){
     <nav class="navbar bg-light">
   <div class="container-fluid">
     <a class="navbar-brand">Administrateur</a>
-    <div class="button">
-      <button style="margin-left:556px; background-color:#FE6263;border:none; border-radius:2px"><a
+    
+    <div class="button" style="display:flex;justify-content:;" >
+     
+<button type="button" class="btn " style="background-color:#FE6263; margin:5px"><a
           style="text-decoration:none;color:white;" href="page_user_archiver.php">Liste des Archives</a></button>
+          <br/>
+<button type="button" class="btn " style="background-color:#FE6263; margin:5px"><a
+          style="text-decoration:none;color:white;" href="admin_page.php">Liste des Admins</a></button>
 
-      </div>
-    <form class="d-flex" role="search" method="POST">
-      <input class="form-control me-2" name="search" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" name="send" type="submit">Search</button>
+   
+          <form class="d-flex" role="search">
+     <input class="form-control me-2" name="search" type="search" placeholder="Rechercher" aria-label="Search">
+      <button class="btn " style="background-color:#FE6263; color:white" name="send" type="submit">Rechercher</button>
     </form>
   </div>
 </nav>
 <?php 
-
-
+  if(isset($search) && $search->rowCount() > 0){
+    $people = $search->fetchAll(PDO::FETCH_OBJ);
+  }
 
 ?>
 

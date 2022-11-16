@@ -17,14 +17,14 @@ include "./db/config.php";
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
     <li class="page-item ">
-      <a class="page-link" href="?page=<?php echo $previous ?>">Previous</a>
+      <a class="page-link" href="?page=<?php echo $previous ?>"  style="background-color:#FE6263; color:white">Previous</a>
     </li>
     <?php 
     for($i= 1; $i<=$numPages; $i++) : ?>
-    <li class="page-item"><a class="page-link" href="?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+    <li class="page-item"><a style=" color:#FE6263" class="page-link" href="?page=<?php echo $i ?>"><?php echo $i ?></a></li>
       <?php  endfor; ?>
     <li class="page-item">
-      <a class="page-link" href="?page=<?php echo $next ?>">Suivant</a>
+      <a class="page-link" href="?page=<?php echo $next ?> " style="background-color:#FE6263; color:white">Suivant</a>
     </li>
   </ul>
 </nav>

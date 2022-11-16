@@ -26,8 +26,8 @@ include "./model/pagination.php";
  
     <div class="card-header" style="height:199px">
     
-      <div class="deconnect">
-        <a href="logout.php" style="margin-left:1248px; top:789px"><i
+    <div class="deconnect">
+        <a href="logout.php" style="margin-left:1200px;align-items:center;font-size:26px;color:#FE6263"><i
             class="fa-solid fa-arrow-right-from-bracket"></i></a>
       </div>
 
@@ -58,14 +58,20 @@ include "./model/pagination.php";
     <nav class="navbar bg-light">
   <div class="container-fluid">
     <a class="navbar-brand">Utilisateurs</a>
-   
+    <button style="margin-left:556px; background-color:#FE6263;border:none; border-radius:2px"><a
+          style="text-decoration:none;color:white;" href="user_page.php">Liste des utilisateurs</a></button>
     <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
+     <input class="form-control me-2" name="search" type="search" placeholder="Rechercher" aria-label="Search">
+      <button class="btn " style="background-color:#FE6263; color:white" name="send" type="submit">Rechercher</button>
     </form>
   </div>
 </nav>
+<?php 
+  if(isset($search) && $search->rowCount() > 0){
+    $people = $search->fetchAll(PDO::FETCH_OBJ);
+  }
 
+?>
       <table class="table table-bordered">
         <tr>
           <!-- <th>ID</th> -->
@@ -75,7 +81,7 @@ include "./model/pagination.php";
           <th>Prenom</th>
           <th>Email</th>
           <th>Role</th>
-          <th>Photo</th>
+          <!-- <th>Photo</th> -->
           <th>Date_Inscription</th>
 
 
@@ -100,7 +106,7 @@ include "./model/pagination.php";
           <td>
             <?= $person->roles; ?>
           </td>
-          <td> <img src="image/<?php echo $person->image; ?>" style="background-size : contain;
+          <!-- <td> <img src="image/<?php echo $person->image; ?>" style="background-size : contain;
   background-position : 50% 50%; 
   background-image : url(/img/exemple/filter-image.jpg);
   display : inline-block;
@@ -109,8 +115,8 @@ include "./model/pagination.php";
   -moz-border-radius : 75px;
   -webkit-border-radius : 75px;
   border-radius : 75px;
-"width = 100px > </td>
-<td>
+"width = 100px > </td-->
+<td> 
             <?= $person->date_Ins; ?>
           </td>
           
