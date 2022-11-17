@@ -30,7 +30,10 @@ if(isset($_POST['submit'])){
     
 
     if($select->rowCount() > 0){
-        
+        if($row["etat"] == 0) {
+            $message[]= 'Votre compte a été archivé';
+        } else {
+            
         $_SESSION['nomPrenom'] = $row['nom']." ".$row['prenom'];
        
         $_SESSION['image'] = $row['image'];
@@ -59,6 +62,8 @@ if(isset($_POST['submit'])){
         $message[]= "n'existe pas";
 
        }
+        }
+        
 
     }
     else{

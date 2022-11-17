@@ -30,7 +30,7 @@ if(!isset($id)){
   header('location:login.php');
 }
 
-$sql = "SELECT * FROM users WHERE etat=1 AND id!=:id";
+$sql = "SELECT * FROM users WHERE etat=1 AND matricule!='.$admin_matricule";
 $statement = $connection->prepare($sql);
 $statement->execute([ 'id'=> $id]);
 $people = $statement->fetchAll(PDO::FETCH_OBJ);

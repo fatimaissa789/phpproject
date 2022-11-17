@@ -4,6 +4,8 @@
 include "./model/affiche.php";
 
 include "./model/pagination.php";
+include "./model/search.php";
+
 // include "./model/change_role.php";
 
 
@@ -28,7 +30,7 @@ include "./model/pagination.php";
 <!--?php require 'header.php'; ?-->
 <div class="container" style="background-color: #FE6263">
   <div class="card mt-5">
- 
+     
     <div class="card-header" style="height:199px">
     
       <div class="deconnect">
@@ -70,17 +72,17 @@ include "./model/pagination.php";
           style="text-decoration:none;color:white;" href="page_user_archiver.php">Liste des Archives</a></button>
           <br/>
 <button type="button" class="btn " style="background-color:#FE6263; margin:5px"><a
-          style="text-decoration:none;color:white;" href="admin_page.php">Liste des Admins</a></button>
+          style="text-decoration:none;color:white;" href="admin_page.php">Voir liste</a></button>
 
    
-          <form class="d-flex" role="search">
+          <form class="d-flex" role="search" method="GET">
      <input class="form-control me-2" name="search" type="search" placeholder="Rechercher" aria-label="Search">
       <button class="btn " style="background-color:#FE6263; color:white" name="send" type="submit">Rechercher</button>
     </form>
   </div>
 </nav>
 <?php 
-  if(isset($search) && $search->rowCount() > 0){
+  if(isset($search) && $search->rowCount() >0){
     $people = $search->fetchAll(PDO::FETCH_OBJ);
   }
 

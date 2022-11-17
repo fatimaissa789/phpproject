@@ -20,9 +20,9 @@ if(isset($_POST['submit'])){
     $role = $_POST['role'];
     // $role = filter_var($role, FILTER_SANITIZE_STRING);
 
-    $mdp = $_POST['mdp'];
+    $mdp = md5($_POST['mdp']);
     // $mdp = filter_var($mdp, FILTER_SANITIZE_STRING);
-    $mdp2 = $_POST['mdp2'];
+    $mdp2 = md5($_POST['mdp2']);
     // $mdp2 = filter_var($mdp2, FILTER_SANITIZE_STRING);
     $matricule= date(' his-- A',time()).'-MTR';
     $image = $_FILES['image']['name'];

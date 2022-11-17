@@ -3,6 +3,7 @@
 include "./model/affiche_user.php";
 
 include "./model/pagination.php";
+include "./model/search.php";
 
 ?>
 <!DOCTYPE html>
