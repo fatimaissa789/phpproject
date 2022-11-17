@@ -4,6 +4,11 @@ include "./model/affiche_user.php";
 
 include "./model/pagination.php";
 include "./model/search.php";
+session_start();
+	if(@$_SESSION["autoriser"]!="oui"){
+		header("location:login.php");
+		exit();
+	}
 
 ?>
 <!DOCTYPE html>
