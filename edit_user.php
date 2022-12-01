@@ -7,11 +7,7 @@ include "./db/config.php";
 include "./model/modif.php";
 
 include "./controllers/ins.php";
-session_start();
-	if(@$_SESSION["autoriser"]!="oui"){
-		header("location:login.php");
-		exit();
-	}
+
 ?>
 
 

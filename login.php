@@ -1,7 +1,7 @@
 
     <?php 
     
-    include "./db/config.php";
+    // include "./db/config.php";
 include  "./controllers/coonnect.php";
     
     ?>

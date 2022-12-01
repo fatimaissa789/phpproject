@@ -26,9 +26,9 @@ $admin_matricule = $_SESSION['matricule'];
 // var_dump($people);
 // die;
 
-if(!isset($id)){
-  header('location:login.php');
-}
+// if(!isset($id)){
+//   header('location:login.php');
+// }
 
 $sql = "SELECT * FROM users WHERE etat=1 AND matricule!='.$admin_matricule";
 $statement = $connection->prepare($sql);

@@ -97,11 +97,29 @@ include  "./controllers/ins.php";
                         <small>Error message</small>
                     </div>
                     <div class="form-control">
-                        <label for="username">Role</label>
+                    <label  for="role">Role</label>
+
+<select  name="role"  id="role" style="border: 2px solid #FE6263;
+	border-radius: 4px;
+	display: block;
+	font-family: inherit;
+	font-size: 14px;
+	padding: 10px;
+    width: 332px;" >
+    <option placeholder="admin ou user">Selectionner votre role</option>
+  <option value="admin">Admin</option>
+  <option value="user">User</option>
+  <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <!-- <small>Error message</small> -->
+</select>
+                    
+                        <!-- <label for="username">Role</label>
+
                         <input type="text" name="role" placeholder="admin ou user" id="role" />
                         <i class="fas fa-check-circle"></i>
                         <i class="fas fa-exclamation-circle"></i>
-                        <small>Error message</small>
+                        <small>Error message</small> -->
                     </div>
                 </div>
 
